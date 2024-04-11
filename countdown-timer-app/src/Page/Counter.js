@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { calculateTimeLeft } from '../Logic/Timer_Logic';
 
 function Counter() {
@@ -24,13 +24,13 @@ function Counter() {
     };
 
     return (
-        <div style={parent_container}>
-            <section style={counter}>
+        <div style={styles.parentContainer}>
+            <section style={styles.counter}>
                 <span> 
-                    <p>{eventName} <br/>
-                    {eventDate} {eventTime}</p><br/><br/>
+                    <p>{eventName} <br />
+                    {eventDate} {eventTime}</p>
                     <p>
-                        Time Left: 
+                        Time Left:
                         {timeLeft.weeks_left > 0 && `${timeLeft.weeks_left} weeks `}
                         {timeLeft.days_left > 0 && `${timeLeft.days_left} days `}
                         {timeLeft.hours_left > 0 && `${timeLeft.hours_left} hours `}
@@ -40,48 +40,57 @@ function Counter() {
                 </span>
             </section>
             <section>
-            <form onSubmit={handleSubmit} style={form}>
+                <form onSubmit={handleSubmit} style={styles.form}>
                     <label htmlFor='event_name'>Event Name: </label>
-                    <input type='text' onChange={event => setEventName(event.target.value)} required/>
+                    <input type='text' onChange={event => setEventName(event.target.value)} required />
                     <label htmlFor='event_date'>Event Date: </label>
-                    <input type='date' onChange={event => setEventDate(event.target.value)} required/>
+                    <input type='date' onChange={event => setEventDate(event.target.value)} required />
                     <label htmlFor='event_time'>Event Time: </label>
-                    <input type='time' onChange={event => setEventTime(event.target.value)} required/>
-                    <button style={button} type='submit'>Submit</button>
+                    <input type='time' onChange={event => setEventTime(event.target.value)} required />
+                    <button style={styles.button} type='submit'>Submit</button>
                 </form>
             </section>
         </div>
     ); 
 }
 
-const parent_container = {
-    display: 'flex',  
-    flexDirection: 'column', 
-    justifyContent: 'center', 
-    minHeight: '100vh',
-}
+const styles = {
+    parentContainer: {
+        display: 'flex',  
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        minHeight: '100vh',
+        alignItems: 'center',  // Align items centrally for better visual layout
+    },
+    counter: {
+        backgroundColor: '#CEE0DC',
+        padding: '15px', 
+        minHeight: '50vh', 
+        display: 'flex',  
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        width: '80%', // Makes the counter width responsive
+        maxWidth: '600px', // Ensures the container does not stretch too wide on larger screens
+    },
+    form: {
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center',
+        backgroundColor: '#B4BDC7', 
+        padding: '15px', 
+        minHeight: '50vh', 
+        width: '80%', // Consistent with counter for a balanced look
+        maxWidth: '600px', // Limiting max width for better aesthetics
+    },
+    button: {
+        backgroundColor: '#A93C52', 
+        border: 'none', 
+        borderRadius: '25px',
+        color: 'white', 
+        padding: '15px',  
+        marginTop: '15px', // Adds space above the button for better spacing
+        cursor: 'pointer', // Indicates that the button is clickable
+    }
+};
 
-const counter = {
-    backgroundColor:'#CEE0DC',
-    padding: '15px', 
-    minHeight: '50vh', 
-    display: 'flex',  
-    flexDirection: 'column', 
-    justifyContent: 'center', 
-}
-const form = {
-    display: 'flex', 
-    flexDirection: 'column', 
-    justifyContent: 'center',
-    backgroundColor: ' #B4BDC7', 
-    padding: '15px', 
-    minHeight: '50vh', 
-}
-const button = {
-    backgroundColor: '#A93C52', 
-    border: 'none', 
-    borderRadius: '25px',
-    color: 'white', 
-    padding: '15px',  
-}
-export default Counter; 
+export default Counter;
