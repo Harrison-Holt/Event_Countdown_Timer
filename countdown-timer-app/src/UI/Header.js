@@ -4,7 +4,7 @@ function Header() {
     return (
         <header style={Header_Style}>
             <h1>Event Countdown Timer</h1>
-            <a href="https://personal-blog-website-kappa.vercel.app/" style="font-size:24px;">Home Page</a>
+            <a href="https://personal-blog-website-kappa.vercel.app/" style={{ fontSize: '24px' }}>Home Page</a>
         </header>
     ); 
 }
@@ -16,14 +16,13 @@ const Header_Style = {
     padding: '15px', 
     width: '100%', 
     position: 'sticky', 
-    zIndex: 1000, 
+    zIndex: '1000', 
     margin: '0', 
     top: '0', 
     left: '0',
     backgroundColor: '#4a76a8', 
     color: 'white',
-    textDecoration: 'none'
-
 }
 
 export default Header; 
+
