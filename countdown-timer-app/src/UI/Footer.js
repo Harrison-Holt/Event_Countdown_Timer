@@ -18,7 +18,7 @@ function Footer() {
     
     const headerStyle = {
         marginRight: '20px',
-        fontSize: '16px',
+        fontSize: '24px',
     };
     
     const iconStyle = {
