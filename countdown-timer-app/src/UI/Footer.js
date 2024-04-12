@@ -1,23 +1,59 @@
-import React from 'react'; 
+import React from 'react';
 
 function Footer() {
+
+    const footerStyles = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '3px',
+        backgroundColor: '#4a76a8',
+        color: 'white',
+        textAlign: 'center',
+        position: 'fixed',
+        left: 0,
+        bottom: 0,
+        width: '100%',
+    };
+    
+    const headerStyle = {
+        marginRight: '20px',
+        fontSize: '16px',
+    };
+    
+    const iconStyle = {
+        fontSize: '24px',
+        textDecoration: 'none',
+        color: 'inherit',
+        marginRight: '20px',
+    };
+    
+    const emailIconStyle = {
+        ...iconStyle,
+        marginRight: '0',
+    };
+    
     return (
-        <footer style={Footer_Style}>
-            <p>Last Updated on March 18, 2024</p>
+        <footer style={footerStyles}>
+            <h1 style={headerStyle}>Let's Connect!</h1>
+            <a href="https://github.com/Harrison-Holt" style={iconStyle} aria-label="Visit Harrison's GitHub profile" title="Visit Harrison's GitHub profile">
+                <i className="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/harrison-holt-18a703202" style={iconStyle} aria-label="Visit Harrison's LinkedIn profile" title="Visit Harrison's LinkedIn profile">
+                <i className="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:hholt2901@gmail.com" style={emailIconStyle} aria-label="Send an email to Harrison" title="Send an email to Harrison">
+                <i className="fa fa-envelope"></i>
+            </a>
         </footer>
-    ); 
-}
 
 
-const Footer_Style = {
-    position: 'fixed',
-    left: 0,
-    bottom: 0,
-    width: '100%',
-    backgroundColor: '#4a76a8',
-    color: 'white',
-    textAlign: 'center',
-    padding: '10px 0',
+    );
+
+   
+
 }
-export default Footer; 
+
+export default Footer;
+
 
