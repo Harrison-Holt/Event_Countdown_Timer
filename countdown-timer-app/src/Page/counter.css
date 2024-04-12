@@ -1,98 +1,75 @@
-/* Base layout settings */
 .parentContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.counter, .form {
+    margin: 10px;
     padding: 20px;
-    background: linear-gradient(145deg, #f8f8f8, #e0e0e0); /* Elegant light grey gradient */
-    font-family: 'Segoe UI', Arial, sans-serif; /* Professional and clean font choice */
-}
-
-/* Counter section styling with emphasis on the timer */
-.counter {
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 8px 8px 16px #aaaaaa, -8px -8px 16px #ffffff; /* Soft 3D effect */
-    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
     text-align: center;
-    width: 100%;
-    max-width: 540px; /* Optimal width for central visibility */
-    margin: 30px 0;
-    transition: all 0.3s ease-in-out; /* Smooth hover effect */
-}
-
-.counter:hover {
-    transform: scale(1.05); /* Slight scale on hover for dynamic interaction */
 }
 
 .eventName {
-    font-size: 24px;
-    color: #264653; /* Professional dark blue */
+    color: #2c3e50;
     margin-bottom: 10px;
 }
 
 .eventDateTime {
-    font-size: 18px;
-    color: #2a9d8f; /* Stylish teal */
+    color: #34495e;
     margin-bottom: 20px;
 }
 
 .timeLeft {
-    font-size: 24px; /* Larger font size for better readability */
-    font-weight: bold;
-    color: #d35400; /* Bright color for higher contrast */
-    background-color: #ecf0f1; /* Light background to enhance contrast */
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 15px;
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font for number clarity */
-}
-
-
-.timeLeft:hover {
-    background: linear-gradient(to right, #ff3d81, #ff7e67); /* Inverse gradient on hover */
-}
-
-.form {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 8px 8px 16px #aaaaaa, -8px -8px 16px #ffffff;
-    width: 100%;
-    max-width: 540px;
-}
-
-.label, .input, .button {
-    display: block;
-    width: 100%;
+    font-size: 18px;
+    color: #16a085;
 }
 
 .input, .button {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    padding: 8px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 90%;
 }
 
 .input {
-    border: 1px solid #ccc;
+    background-color: #ecf0f1;
 }
 
 .button {
-    background-color: #2a9d8f;
     color: white;
-    font-weight: bold;
+    background-color: #3498db;
     cursor: pointer;
 }
 
 .button:hover {
-    background-color: #264653; /* Dark blue for a cohesive look with the event name */
+    background-color: #2980b9;
 }
 
-@media (max-width: 600px) {
-    .counter, .form {
-        padding: 20px;
-        max-width: 100%;
-    }
+.label {
+    display: block;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+.buttonGroup {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.deleteButton {
+    color: white;
+    background-color: #e74c3c;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #c0392b;
 }

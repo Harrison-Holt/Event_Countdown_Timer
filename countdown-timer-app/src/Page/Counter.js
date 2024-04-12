@@ -3,62 +3,72 @@ import { calculateTimeLeft } from '../Logic/Timer_Logic';
 import './counter.css';  // Ensure the CSS file is correctly imported
 
 function Counter() {
-    const [eventName, setEventName] = useState('');
-    const [eventDate, setEventDate] = useState('');
-    const [eventTime, setEventTime] = useState('');
+    const [eventName, setEventName] = useState(localStorage.getItem('eventName') || '');
+    const [eventDate, setEventDate] = useState(localStorage.getItem('eventDate') || '');
+    const [eventTime, setEventTime] = useState(localStorage.getItem('eventTime') || '');
     const [timeLeft, setTimeLeft] = useState({});
-    const [showDetails, setShowDetails] = useState(false);  // State to control visibility
+    const [showDetails, setShowDetails] = useState(false);  // Added on master for showing details conditionally
 
     useEffect(() => {
-        if (showDetails) {
-            const updateTimer = () => {
+        const updateTimer = () => {
+            if (eventDate && eventTime) {
                 const newTimeLeft = calculateTimeLeft(eventDate, eventTime);
                 setTimeLeft(newTimeLeft);
-            };
+            }
+        };
 
-            updateTimer();
-            const intervalId = setInterval(updateTimer, 1000);
+        updateTimer();
+        const intervalId = setInterval(updateTimer, 1000);
 
-            return () => clearInterval(intervalId);
-        }
-    }, [eventDate, eventTime, showDetails]);
+        return () => clearInterval(intervalId);
+    }, [eventDate, eventTime]);
 
-    const handleSubmit = async (event) => {
+    useEffect(() => {
+        localStorage.setItem('eventName', eventName);
+        localStorage.setItem('eventDate', eventDate);
+        localStorage.setItem('eventTime', eventTime);
+    }, [eventName, eventDate, eventTime]);
+
+    const handleSubmit = (event) => {
         event.preventDefault();
         setShowDetails(true);  // Show event details and timer after submit
     };
 
+    const handleDelete = () => {
+        // Clear state and localStorage
+        setEventName('');
+        setEventDate('');
+        setEventTime('');
+        localStorage.removeItem('eventName');
+        localStorage.removeItem('eventDate');
+        localStorage.removeItem('eventTime');
+    };
+
     return (
-        <div className="parent-container">
-            <form onSubmit={handleSubmit} className="form-style">
-                <label htmlFor='event_name' className="label-style">Event Name:</label>
-                <input type='text' onChange={e => setEventName(e.target.value)} required className="input-style"/>
-                <label htmlFor='event_date' className="label-style">Event Date:</label>
-                <input type='date' onChange={e => setEventDate(e.target.value)} required className="input-style"/>
-                <label htmlFor='event_time' className="label-style">Event Time:</label>
-                <input type='time' onChange={e => setEventTime(e.target.value)} required className="input-style"/>
-                <button type='submit' className="button-style">Submit</button>
-            </form>
-            {showDetails && (
-                <section className="counter-style">
-                    <h1 className="event-name">{eventName}</h1>
-                    <p className="event-date-time">{eventDate} at {eventTime}</p>
-                    <div className="time-left">
-                        Time Left:
-                        {timeLeft.weeks_left > 0 && `${timeLeft.weeks_left} weeks `}
-                        {timeLeft.days_left > 0 && `${timeLeft.days_left} days `}
-                        {timeLeft.hours_left > 0 && `${timeLeft.hours_left} hours `}
-                        {timeLeft.minutes_left > 0 && `${timeLeft.minutes_left} minutes `}
-                        {timeLeft.seconds_left > 0 && `${timeLeft.seconds_left} seconds`}
+        <div className="parentContainer">
+            <section className="counter">
+                <h1 className="eventName">{eventName || "No Event Selected"}</h1>
+                <p className="eventDateTime">{eventDate && eventTime ? `${eventDate} at ${eventTime}` : "Date and Time not set"}</p>
+                <div className="timeLeft">
+                    Time Left:
+                    {Object.keys(timeLeft).map((unit) => (
+                        timeLeft[unit] > 0 && <span key={unit}>{timeLeft[unit]} {unit.replace('_left', '')} </span>
+                    ))}
+                </div>
+            </section>
+            <section>
+                <form onSubmit={handleSubmit} className="form">
+                    <input type='text' id='event_name' value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" required className="input"/>
+                    <input type='date' id='event_date' value={eventDate} onChange={e => setEventDate(e.target.value)} required className="input"/>
+                    <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
+                    <div className="buttonGroup">
+                        <button type='submit' className="button">Set Event</button>
+                        <button type='button' onClick={handleDelete} className="deleteButton">Clear Event</button>
                     </div>
-                </section>
-            )}
+                </form>
+            </section>
         </div>
     );
 }
 
 export default Counter;
-
-
-
-
