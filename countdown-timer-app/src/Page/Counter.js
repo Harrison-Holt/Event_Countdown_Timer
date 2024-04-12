@@ -46,15 +46,6 @@ function Counter() {
 
     return (
         <div className="parentContainer">
-            <form onSubmit={handleSubmit} className="form">
-                <input type='text' id='event_name' value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" required className="input"/>
-                <input type='date' id='event_date' value={eventDate} onChange={e => setEventDate(e.target.value)} required className="input"/>
-                <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
-                <div className="buttonGroup">
-                    <button type='submit' className="button">Set Event</button>
-                    <button type='button' onClick={handleDelete} className="deleteButton">Clear Event</button>
-                </div>
-            </form>
             {showDetails && (
                 <section className="counter">
                     <h1 className="eventName">{eventName || "No Event Selected"}</h1>
@@ -69,9 +60,20 @@ function Counter() {
                     </div>
                 </section>
             )}
+            <form onSubmit={handleSubmit} className="form">
+                <input type='text' id='event_name' value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" required className="input"/>
+                <input type='date' id='event_date' value={eventDate} onChange={e => setEventDate(e.target.value)} required className="input"/>
+                <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
+                <div className="buttonGroup">
+                    <button type='submit' className="button">Set Event</button>
+                    <button type='button' onClick={handleDelete} className="deleteButton">Clear Event</button>
+                </div>
+            </form>
         </div>
     );
 }
 
 export default Counter;
+
+
 
