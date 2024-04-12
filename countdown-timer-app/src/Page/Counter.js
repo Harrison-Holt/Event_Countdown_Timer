@@ -7,21 +7,20 @@ function Counter() {
     const [eventDate, setEventDate] = useState(localStorage.getItem('eventDate') || '');
     const [eventTime, setEventTime] = useState(localStorage.getItem('eventTime') || '');
     const [timeLeft, setTimeLeft] = useState({});
-    const [showDetails, setShowDetails] = useState(false);  // Added on master for showing details conditionally
+    const [showDetails, setShowDetails] = useState(false);  
 
     useEffect(() => {
         const updateTimer = () => {
-            if (eventDate && eventTime) {
+            if (showDetails && eventDate && eventTime) {
                 const newTimeLeft = calculateTimeLeft(eventDate, eventTime);
                 setTimeLeft(newTimeLeft);
             }
         };
 
-        updateTimer();
         const intervalId = setInterval(updateTimer, 1000);
 
         return () => clearInterval(intervalId);
-    }, [eventDate, eventTime]);
+    }, [eventDate, eventTime, showDetails]);
 
     useEffect(() => {
         localStorage.setItem('eventName', eventName);
@@ -35,7 +34,8 @@ function Counter() {
     };
 
     const handleDelete = () => {
-        // Clear state and localStorage
+        // Clear state, localStorage, and hide details
+        setShowDetails(false);  // Also hide the event details
         setEventName('');
         setEventDate('');
         setEventTime('');
@@ -46,29 +46,32 @@ function Counter() {
 
     return (
         <div className="parentContainer">
-            <section className="counter">
-                <h1 className="eventName">{eventName || "No Event Selected"}</h1>
-                <p className="eventDateTime">{eventDate && eventTime ? `${eventDate} at ${eventTime}` : "Date and Time not set"}</p>
-                <div className="timeLeft">
-                    Time Left:
-                    {Object.keys(timeLeft).map((unit) => (
-                        timeLeft[unit] > 0 && <span key={unit}>{timeLeft[unit]} {unit.replace('_left', '')} </span>
-                    ))}
+            <form onSubmit={handleSubmit} className="form">
+                <input type='text' id='event_name' value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" required className="input"/>
+                <input type='date' id='event_date' value={eventDate} onChange={e => setEventDate(e.target.value)} required className="input"/>
+                <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
+                <div className="buttonGroup">
+                    <button type='submit' className="button">Set Event</button>
+                    <button type='button' onClick={handleDelete} className="deleteButton">Clear Event</button>
                 </div>
-            </section>
-            <section>
-                <form onSubmit={handleSubmit} className="form">
-                    <input type='text' id='event_name' value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" required className="input"/>
-                    <input type='date' id='event_date' value={eventDate} onChange={e => setEventDate(e.target.value)} required className="input"/>
-                    <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
-                    <div className="buttonGroup">
-                        <button type='submit' className="button">Set Event</button>
-                        <button type='button' onClick={handleDelete} className="deleteButton">Clear Event</button>
+            </form>
+            {showDetails && (
+                <section className="counter">
+                    <h1 className="eventName">{eventName || "No Event Selected"}</h1>
+                    <p className="eventDateTime">{`${eventDate} at ${eventTime}`}</p>
+                    <div className="timeLeft">
+                        Time Left:
+                        {timeLeft.weeks_left > 0 && <span>{timeLeft.weeks_left} weeks </span>}
+                        {timeLeft.days_left > 0 && <span>{timeLeft.days_left} days </span>}
+                        {timeLeft.hours_left > 0 && <span>{timeLeft.hours_left} hours </span>}
+                        {timeLeft.minutes_left > 0 && <span>{timeLeft.minutes_left} minutes </span>}
+                        {timeLeft.seconds_left > 0 && <span>{timeLeft.seconds_left} seconds </span>}
                     </div>
-                </form>
-            </section>
+                </section>
+            )}
         </div>
     );
 }
 
 export default Counter;
+
