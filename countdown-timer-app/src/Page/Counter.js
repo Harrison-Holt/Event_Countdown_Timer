@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { calculateTimeLeft } from '../Logic/Timer_Logic';
-import './cunter.css';  // Ensure the CSS file is correctly imported
+import './counter.css';  // Ensure the CSS file is correctly imported
 
 function Counter() {
     const [eventName, setEventName] = useState('');
