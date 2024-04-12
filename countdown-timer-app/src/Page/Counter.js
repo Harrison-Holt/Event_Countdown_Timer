@@ -51,7 +51,7 @@ function Counter() {
                     <h1 className="eventName">{eventName || "No Event Selected"}</h1>
                     <p className="eventDateTime">{`${eventDate} at ${eventTime}`}</p>
                     <div className="timeLeft">
-                        Time Left:
+                        Time Left:<br/>
                         {timeLeft.weeks_left > 0 && <span>{timeLeft.weeks_left} weeks </span>}
                         {timeLeft.days_left > 0 && <span>{timeLeft.days_left} days </span>}
                         {timeLeft.hours_left > 0 && <span>{timeLeft.hours_left} hours </span>}
