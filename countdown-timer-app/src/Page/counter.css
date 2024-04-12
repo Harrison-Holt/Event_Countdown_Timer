@@ -1,104 +1,75 @@
-/* Base layout settings */
 .parentContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.counter, .form {
+    margin: 10px;
     padding: 20px;
-    background-color: #F5F5F5; /* Light grey background for minimal eye strain */
-    color: #333; /* Dark grey text for readability */
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Modern, sans-serif font for clean text */
-}
-
-/* Styling for the counter section */
-.counter {
-    background-color: #FFFFFF;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Soft shadow for 3D effect */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
     text-align: center;
-    width: 100%;
-    max-width: 500px; /* Optimal width for readability */
-    margin-bottom: 30px; /* Space between sections */
-    transition: transform 0.3s ease-in-out; /* Smooth transition for interactive hover effect */
-}
-
-/* Hover effect for the counter to lift off the page slightly */
-.counter:hover {
-    transform: translateY(-5px);
-}
-
-/* Header and date-time styles for emphasis */
-.eventName, .eventDateTime {
-    margin-bottom: 15px;
-    color: #2C3E50; /* Dark blue for contrast and focus */
-    font-weight: 600; /* Semi-bold for better visibility */
 }
 
 .eventName {
-    font-size: 26px; /* Larger font size for the main title */
+    color: #2c3e50;
+    margin-bottom: 10px;
 }
 
 .eventDateTime {
-    font-size: 18px; /* Smaller than title but still prominent */
+    color: #34495e;
+    margin-bottom: 20px;
 }
 
-/* Details of the time left with larger, bolder text */
 .timeLeft {
-    font-size: 20px;
-    font-weight: bold;
-    color: #E74C3C; /* Red accent color for urgency */
-    margin-top: 10px;
+    font-size: 18px;
+    color: #16a085;
 }
 
-/* Form styling */
-.form {
-    background-color: #FFFFFF;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-}
-
-.label {
-    font-size: 16px;
-    color: #7F8C8D; /* Soft gray for labels */
-    font-weight: 500;
-    margin-bottom: 5px;
+.input, .button {
+    padding: 8px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 90%;
 }
 
 .input {
-    padding: 12px;
-    border: 1px solid #BDC3C7; /* Light gray border for inputs */
-    border-radius: 8px;
-    margin-bottom: 20px; /* More space between form elements */
+    background-color: #ecf0f1;
 }
 
 .button {
-    background-color: #3498DB; /* Bright blue for a pop of color */
     color: white;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 8px;
+    background-color: #3498db;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out;
 }
 
-/* Interactive effects for button */
 .button:hover {
-    background-color: #2980B9; /* Darker blue on hover for feedback */
+    background-color: #2980b9;
 }
 
-/* Responsive adjustments for better mobile viewing */
-@media (max-width: 600px) {
-    .counter, .form {
-        padding: 20px;
-        max-width: 100%;
-    }
+.label {
+    display: block;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+.buttonGroup {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.deleteButton {
+    color: white;
+    background-color: #e74c3c;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #c0392b;
 }
