@@ -39,19 +39,17 @@
     margin-bottom: 20px;
 }
 
-/* Enhanced timer display */
 .timeLeft {
-    font-size: 28px; /* Larger font size for emphasis */
+    font-size: 24px; /* Larger font size for better readability */
     font-weight: bold;
-    color: #e76f51; /* Eye-catching coral for urgency */
-    margin: 20px 0;
-    background: linear-gradient(to right, #ff7e67, #ff3d81); /* Gradient for visual impact */
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    display: inline-block;
-    transition: background 0.5s ease; /* Smooth background transition */
+    color: #d35400; /* Bright color for higher contrast */
+    background-color: #ecf0f1; /* Light background to enhance contrast */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for number clarity */
 }
+
 
 .timeLeft:hover {
     background: linear-gradient(to right, #ff3d81, #ff7e67); /* Inverse gradient on hover */
