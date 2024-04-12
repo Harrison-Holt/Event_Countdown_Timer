@@ -6,90 +6,96 @@
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
-    background: linear-gradient(145deg, #f8f8f8, #e0e0e0); /* Elegant light grey gradient */
-    font-family: 'Segoe UI', Arial, sans-serif; /* Professional and clean font choice */
+    background-color: #F5F5F5; /* Light grey background for minimal eye strain */
+    color: #333; /* Dark grey text for readability */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Modern, sans-serif font for clean text */
 }
 
-/* Counter section styling with emphasis on the timer */
+/* Styling for the counter section */
 .counter {
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 8px 8px 16px #aaaaaa, -8px -8px 16px #ffffff; /* Soft 3D effect */
-    padding: 30px;
+    background-color: #FFFFFF;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Soft shadow for 3D effect */
     text-align: center;
     width: 100%;
-    max-width: 540px; /* Optimal width for central visibility */
-    margin: 30px 0;
-    transition: all 0.3s ease-in-out; /* Smooth hover effect */
+    max-width: 500px; /* Optimal width for readability */
+    margin-bottom: 30px; /* Space between sections */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for interactive hover effect */
 }
 
+/* Hover effect for the counter to lift off the page slightly */
 .counter:hover {
-    transform: scale(1.05); /* Slight scale on hover for dynamic interaction */
+    transform: translateY(-5px);
+}
+
+/* Header and date-time styles for emphasis */
+.eventName, .eventDateTime {
+    margin-bottom: 15px;
+    color: #2C3E50; /* Dark blue for contrast and focus */
+    font-weight: 600; /* Semi-bold for better visibility */
 }
 
 .eventName {
-    font-size: 24px;
-    color: #264653; /* Professional dark blue */
-    margin-bottom: 10px;
+    font-size: 26px; /* Larger font size for the main title */
 }
 
 .eventDateTime {
-    font-size: 18px;
-    color: #2a9d8f; /* Stylish teal */
-    margin-bottom: 20px;
+    font-size: 18px; /* Smaller than title but still prominent */
 }
 
+/* Details of the time left with larger, bolder text */
 .timeLeft {
-    font-size: 24px; /* Larger font size for better readability */
+    font-size: 20px;
     font-weight: bold;
-    color: #d35400; /* Bright color for higher contrast */
-    background-color: #ecf0f1; /* Light background to enhance contrast */
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 15px;
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font for number clarity */
+    color: #E74C3C; /* Red accent color for urgency */
+    margin-top: 10px;
 }
 
-
-.timeLeft:hover {
-    background: linear-gradient(to right, #ff3d81, #ff7e67); /* Inverse gradient on hover */
-}
-
+/* Form styling */
 .form {
-    background: #ffffff;
-    padding: 25px;
+    background-color: #FFFFFF;
+    padding: 25px 30px;
     border-radius: 12px;
-    box-shadow: 8px 8px 16px #aaaaaa, -8px -8px 16px #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 540px;
+    max-width: 500px;
 }
 
-.label, .input, .button {
-    display: block;
-    width: 100%;
-}
-
-.input, .button {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+.label {
+    font-size: 16px;
+    color: #7F8C8D; /* Soft gray for labels */
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .input {
-    border: 1px solid #ccc;
+    padding: 12px;
+    border: 1px solid #BDC3C7; /* Light gray border for inputs */
+    border-radius: 8px;
+    margin-bottom: 20px; /* More space between form elements */
 }
 
 .button {
-    background-color: #2a9d8f;
+    background-color: #3498DB; /* Bright blue for a pop of color */
     color: white;
-    font-weight: bold;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
 }
 
+/* Interactive effects for button */
 .button:hover {
-    background-color: #264653; /* Dark blue for a cohesive look with the event name */
+    background-color: #2980B9; /* Darker blue on hover for feedback */
 }
 
+/* Responsive adjustments for better mobile viewing */
 @media (max-width: 600px) {
     .counter, .form {
         padding: 20px;
