@@ -32,7 +32,7 @@ function Footer() {
         ...iconStyle,
         marginRight: '0',
     };
-    
+
     return (
         <footer style={footerStyles}>
             <h1 style={headerStyle}>Let's Connect!</h1>
