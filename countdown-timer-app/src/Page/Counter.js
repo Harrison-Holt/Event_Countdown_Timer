@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { calculateTimeLeft } from '../Logic/Timer_Logic';
-import './counter.css';  // Ensure the CSS file is correctly imported
+import './counter.css';  
 
 function Counter() {
     const [eventName, setEventName] = useState(localStorage.getItem('eventName') || '');
@@ -30,13 +30,11 @@ function Counter() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setShowDetails(true);  // Show event details and timer after submit
+        setShowDetails(true);  
     };
 
     const handleDelete = () => {
-        // Clear state, localStorage, and hide details
-        setShowDetails(false);  // Also hide the event details
-        setEventName('');
+        setShowDetails(false);  
         setEventDate('');
         setEventTime('');
         localStorage.removeItem('eventName');
