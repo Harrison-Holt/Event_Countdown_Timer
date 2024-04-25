@@ -1,9 +1,9 @@
-.link {
+a {
     font-size: '24px'; 
     text-decoration: 'none'; 
     color: 'white' 
 }
 
-.link:hover {
+a:hover {
     color: #f5f5f5; 
 }
