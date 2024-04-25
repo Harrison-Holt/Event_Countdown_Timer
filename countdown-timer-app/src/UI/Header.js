@@ -1,10 +1,11 @@
 import React from 'react'; 
+import './header.css'; 
 
 function Header() {
     return (
         <header style={Header_Style}>
             <h1>Event Countdown Timer</h1>
-            <a href="https://personal-blog-website-kappa.vercel.app/" style={{ fontSize: '24px', textDecoration: 'none', color: 'white' }}>Home Page</a>
+            <a href="https://personal-blog-website-kappa.vercel.app/" style={link}>Home Page</a>
         </header>
     ); 
 }
