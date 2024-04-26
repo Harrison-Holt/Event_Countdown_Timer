@@ -7,7 +7,7 @@ function Counter() {
     const [eventDate, setEventDate] = useState(localStorage.getItem('eventDate') || '');
     const [eventTime, setEventTime] = useState(localStorage.getItem('eventTime') || '');
     const [timeLeft, setTimeLeft] = useState({});
-    const [showDetails, setShowDetails] = useState(false);
+    const [showDetails, setShowDetails] = useState(localStorage.getItem('showDetails') === 'true');
 
     useEffect(() => {
         const updateTimer = () => {
@@ -29,21 +29,23 @@ function Counter() {
         localStorage.setItem('eventName', eventName);
         localStorage.setItem('eventDate', eventDate);
         localStorage.setItem('eventTime', eventTime);
-    }, [eventName, eventDate, eventTime]);
+        localStorage.setItem('showDetails', showDetails); // Store showDetails state
+    }, [eventName, eventDate, eventTime, showDetails]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setShowDetails(true);
+        setShowDetails(true);  // Set showDetails to true and save it
     };
 
     const handleDelete = () => {
-        setShowDetails(false);
+        setShowDetails(false);  // Set showDetails to false and clear event details
         setEventName('');
         setEventDate('');
         setEventTime('');
         localStorage.removeItem('eventName');
         localStorage.removeItem('eventDate');
         localStorage.removeItem('eventTime');
+        localStorage.setItem('showDetails', false);
     };
 
     return (
