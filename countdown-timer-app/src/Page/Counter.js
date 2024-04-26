@@ -48,12 +48,26 @@ function Counter() {
         localStorage.setItem('showDetails', false);
     };
 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear().toString().slice(-2)}`;
+        return formattedDate;
+    }
+    function formatTime(timeString) {
+        const [hour, minute] = timeString.split(':');
+        const hourInt = parseInt(hour, 10);
+        const amPm = hourInt >= 12 ? 'PM' : 'AM';
+        const formattedHour = ((hourInt % 12) || 12).toString().padStart(2, '0'); // Converts 0 to 12 for 12 AM
+        return `${formattedHour}:${minute} ${amPm}`;
+    }
+        
+
     return (
         <div className="parentContainer">
             {showDetails && (
                 <section className="counter">
                     <h1 className="eventName">{eventName || "No Event Selected"}</h1>
-                    <p className="eventDateTime">{`${eventDate} at ${eventTime}`}</p>
+                    <p className="eventDateTime">{`${formatDate(eventDate)} at ${formatTime(eventTime)}`}</p>
                     <div className="timeLeft">
                         Time Left:<br/>
                         {timeLeft.weeks_left > 0 && <span>{timeLeft.weeks_left} weeks </span>}
