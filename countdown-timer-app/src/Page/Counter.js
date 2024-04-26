@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { calculateTimeLeft } from '../Logic/Timer_Logic';
-import './counter.css';  
+import './counter.css';
 
 function Counter() {
     const [eventName, setEventName] = useState(localStorage.getItem('eventName') || '');
     const [eventDate, setEventDate] = useState(localStorage.getItem('eventDate') || '');
     const [eventTime, setEventTime] = useState(localStorage.getItem('eventTime') || '');
     const [timeLeft, setTimeLeft] = useState({});
-    const [showDetails, setShowDetails] = useState(false);  
+    const [showDetails, setShowDetails] = useState(false);
 
     useEffect(() => {
         const updateTimer = () => {
-            if (showDetails && eventDate && eventTime) {
+            if (showDetails && eventDate && eventTime && new Date(`${eventDate}T${eventTime}`) > new Date()) {
                 const newTimeLeft = calculateTimeLeft(eventDate, eventTime);
                 setTimeLeft(newTimeLeft);
+            } else {
+                setTimeLeft({}); // Clear time left if the date/time is past or invalid
             }
         };
 
+        updateTimer(); // Run once on mount to set initial state
         const intervalId = setInterval(updateTimer, 1000);
 
         return () => clearInterval(intervalId);
@@ -30,11 +33,12 @@ function Counter() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setShowDetails(true);  
+        setShowDetails(true);
     };
 
     const handleDelete = () => {
-        setShowDetails(false);  
+        setShowDetails(false);
+        setEventName('');
         setEventDate('');
         setEventTime('');
         localStorage.removeItem('eventName');
@@ -72,6 +76,7 @@ function Counter() {
 }
 
 export default Counter;
+
 
 
 
