@@ -50,10 +50,13 @@ function Counter() {
 
     function formatDate(dateString) {
         const date = new Date(dateString);
-        console.log(date); 
-        const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear().toString().slice(-2)}`;
-        return formattedDate;
+        return date.toLocaleDateString('en-US', {
+            year: '2-digit',
+            month: '2-digit',
+            day: '2-digit'
+        });
     }
+    
     function formatTime(timeString) {
         const [hour, minute] = timeString.split(':');
         const hourInt = parseInt(hour, 10);
