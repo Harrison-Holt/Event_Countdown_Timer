@@ -35,7 +35,6 @@ function Counter() {
     const handleSubmit = (event) => {
         event.preventDefault();
         setShowDetails(true);  
-        console.log(eventDate); 
     };
 
     const handleDelete = () => {
@@ -68,7 +67,7 @@ function Counter() {
             {showDetails && (
                 <section className="counter">
                     <h1 className="eventName">{eventName || "No Event Selected"}</h1>
-                    <p className="eventDateTime">{`${formatDate(eventDate)} at ${formatTime(eventTime)}`}</p>
+                    <p className="eventDateTime">{`${eventDate} at ${formatTime(eventTime)}`}</p>
                     <div className="timeLeft">
                         Time Left:<br/>
                         {timeLeft.weeks_left > 0 && <span>{timeLeft.weeks_left} weeks </span>}
