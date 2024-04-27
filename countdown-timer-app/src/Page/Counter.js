@@ -34,11 +34,12 @@ function Counter() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setShowDetails(true);  // Set showDetails to true and save it
+        setShowDetails(true);  
+        console.log(eventDate); 
     };
 
     const handleDelete = () => {
-        setShowDetails(false);  // Set showDetails to false and clear event details
+        setShowDetails(false);  
         setEventName('');
         setEventDate('');
         setEventTime('');
