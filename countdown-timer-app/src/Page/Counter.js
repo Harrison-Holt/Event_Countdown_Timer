@@ -49,13 +49,15 @@ function Counter() {
     };
 
     function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', {
-            year: '2-digit',
-            month: '2-digit',
-            day: '2-digit'
-        });
+        // Split the input dateString assuming it is in "YYYY-MM-DD" format
+        const parts = dateString.split('-');
+        // Create a new Date object using local time parts
+        const date = new Date(parts[0], parts[1] - 1, parts[2]);
+        
+        const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear().toString().slice(-2)}`;
+        return formattedDate;
     }
+    
     
     function formatTime(timeString) {
         const [hour, minute] = timeString.split(':');
