@@ -50,6 +50,7 @@ function Counter() {
 
     function formatDate(dateString) {
         const date = new Date(dateString);
+        console.log(date); 
         const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear().toString().slice(-2)}`;
         return formattedDate;
     }
@@ -67,7 +68,7 @@ function Counter() {
             {showDetails && (
                 <section className="counter">
                     <h1 className="eventName">{eventName || "No Event Selected"}</h1>
-                    <p className="eventDateTime">{`${eventDate} at ${formatTime(eventTime)}`}</p>
+                    <p className="eventDateTime">{`${formatDate(eventDate)} at ${formatTime(eventTime)}`}</p>
                     <div className="timeLeft">
                         Time Left:<br/>
                         {timeLeft.weeks_left > 0 && <span>{timeLeft.weeks_left} weeks </span>}
