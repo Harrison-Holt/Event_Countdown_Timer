@@ -9,6 +9,7 @@ function Counter() {
     const [timeLeft, setTimeLeft] = useState({});
     const [showDetails, setShowDetails] = useState(localStorage.getItem('showDetails') === 'true');
     const [isFinished, setIsFinished] = useState(false);
+    const [alertShown, setAlertShown] = useState(false);
 
     useEffect(() => {
         const updateTimer = () => {
@@ -20,10 +21,14 @@ function Counter() {
                     const newTimeLeft = calculateTimeLeft(eventDate, eventTime);
                     setTimeLeft(newTimeLeft);
                     setIsFinished(false); // Timer is running
+                    setAlertShown(false); // Reset alertShown when timer is running
                 } else {
                     setTimeLeft({});
                     setIsFinished(true); // Timer has finished
-                    alert('The event time has been reached!');
+                    if (!alertShown) {
+                        alert('The event time has been reached!');
+                        setAlertShown(true); // Set alertShown to true after showing alert
+                    }
                 }
             } else {
                 setTimeLeft({});
@@ -34,7 +39,7 @@ function Counter() {
         const intervalId = setInterval(updateTimer, 1000);
 
         return () => clearInterval(intervalId);
-    }, [eventDate, eventTime, showDetails]);
+    }, [eventDate, eventTime, showDetails, alertShown]);
 
     useEffect(() => {
         localStorage.setItem('eventName', eventName);
@@ -53,6 +58,7 @@ function Counter() {
         setEventName('');
         setEventDate('');
         setEventTime('');
+        setAlertShown(false); // Reset alertShown when event is cleared
         localStorage.removeItem('eventName');
         localStorage.removeItem('eventDate');
         localStorage.removeItem('eventTime');
