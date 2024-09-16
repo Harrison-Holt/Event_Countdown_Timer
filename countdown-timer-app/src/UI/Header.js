@@ -7,7 +7,7 @@ function Header() {
         <Row as="header">
             <Col className="d-flex flex-row justify-content-between align-items-center p-3">
             <h1 className="ms-3">Event Countdown Timer</h1>
-            <a href="https://harrisonholt.dev/">Home Page</a>
+            <a href="https://harrisonholt.dev/" className="text-decoration-none text-black">Home Page</a>
             </Col>
         </Row>
     ); 
