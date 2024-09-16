@@ -1,12 +1,15 @@
 import React from 'react'; 
+import { Row, Col } from 'react-bootstrap'; 
 import './header.css'; 
 
 function Header() {
     return (
-        <header>
-            <h1>Event Countdown Timer</h1>
+        <Row as="header">
+            <Col className="d-flex flex-row justify-content-between align-items-center">
+            <h1 className="ms-3">Event Countdown Timer</h1>
             <a href="https://harrisonholt.dev/">Home Page</a>
-        </header>
+            </Col>
+        </Row>
     ); 
 }
 export default Header; 

@@ -1,10 +1,12 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap'; 
 import './footer.css';
 
 
 function Footer() {
     return (
-        <footer>
+        <Row as="footer">
+            <Col className="d-flex flex-row justify-content-center align-items-center gap-3">
             <h1>\Let's Connect!</h1>
             <a href="https://github.com/Harrison-Holt" className="icon-link" aria-label="Visit Harrison's GitHub profile" title="Visit Harrison's GitHub profile">
                 <i className="fab fa-github"></i>
@@ -15,7 +17,8 @@ function Footer() {
             <a href="mailto:hholt2901@gmail.com" className="icon-link email-icon" aria-label="Send an email to Harrison" title="Send an email to Harrison">
                 <i className="fa fa-envelope"></i>
             </a>
-        </footer>
+            </Col>
+        </Row>
     );
 }
 export default Footer;

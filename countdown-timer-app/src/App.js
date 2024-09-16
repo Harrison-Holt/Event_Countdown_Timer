@@ -3,16 +3,16 @@ import Header from './UI/Header';
 import Footer from './UI/Footer'; 
 import Counter from './Page/Counter'; 
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function App() {
   return (
-    <div>
+    <Container fluid>
       <Header />
-      <main>
         <Counter />
-      </main>
       <Footer />
-    </div>
+    </Container>
   );
 }
 
