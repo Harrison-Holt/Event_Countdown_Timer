@@ -4,6 +4,10 @@
 header {
     background-color: #3498DB;
 }
+header h1, a {
+    font-family: 'Merriweather';
+}
+
 a {
     font-size: 36px; 
     text-decoration: none; 
