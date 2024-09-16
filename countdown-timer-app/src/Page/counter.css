@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
 .parentContainer {
     display: flex;
     flex-direction: column;
@@ -14,6 +16,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
     text-align: center;
+    font-family: 'Cardo';
 }
 
 .eventName {
@@ -43,15 +46,7 @@
     background-color: #ecf0f1;
 }
 
-.button {
-    color: white;
-    background-color: #3498db;
-    cursor: pointer;
-}
 
-.button:hover {
-    background-color: #2980b9;
-}
 
 .label {
     display: block;
@@ -65,12 +60,3 @@
     padding-top: 10px;
 }
 
-.deleteButton {
-    color: white;
-    background-color: #e74c3c;
-    cursor: pointer;
-}
-
-.deleteButton:hover {
-    background-color: #c0392b;
-}
