@@ -69,7 +69,7 @@ function Counter() {
     return (
         <div className="parentContainer row">
             {showDetails && (
-                <section className="counter">
+                <section className="counter w-50">
                     <h1 className="eventName">{eventName || "No Event Selected"}</h1>
                     <p className="eventDateTime">{`${formatDate(eventDate)} at ${formatTime(eventTime)}`}</p>
                     <div className="timeLeft">
@@ -82,7 +82,7 @@ function Counter() {
                     </div>
                 </section>
             )}
-            <form onSubmit={handleSubmit} className="form">
+            <form onSubmit={handleSubmit} className="form w-50">
                 <input type='text' id='event_name' value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" required className="input"/>
                 <input type='date' id='event_date' value={eventDate} onChange={e => setEventDate(e.target.value)} required className="input"/>
                 <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
