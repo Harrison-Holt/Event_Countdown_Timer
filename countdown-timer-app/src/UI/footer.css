@@ -9,13 +9,13 @@ footer h2 {
     font-size: 24px;
 }
 .icon-link {
-    font-size: 24px;
+    font-size: 36px;
     text-decoration: none;
     color: inherit;
     margin-right: 20px;
 }
 .icon-link:hover  {
-    color: red;
+    color: white;
     transform: scale(1.1);
 }
 
