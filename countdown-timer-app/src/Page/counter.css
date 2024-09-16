@@ -1,0 +1,76 @@
+.parentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.counter, .form {
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.eventName {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.eventDateTime {
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.timeLeft {
+    font-size: 18px;
+    color: #16a085;
+}
+
+.input, .button {
+    padding: 8px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.input {
+    background-color: #ecf0f1;
+}
+
+.button {
+    color: white;
+    background-color: #3498db;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.label {
+    display: block;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+.buttonGroup {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.deleteButton {
+    color: white;
+    background-color: #e74c3c;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #c0392b;
+}
