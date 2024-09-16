@@ -9,7 +9,7 @@ function Footer() {
             <Col md={6} className="d-flex flex-row justify-content-end align-items-center gap-3 p-3">          
             <h2>Let's Connect!</h2>
             </Col>
-            <Col md={6} className="d-flex flex-row justify-content-start align-items-center gap-3 p-3 mb-1">
+            <Col md={6} className="d-flex flex-row justify-content-start align-items-center gap-3 p-3 mb-2">
             <a href="https://github.com/Harrison-Holt" className="icon-link" aria-label="Visit Harrison's GitHub profile" title="Visit Harrison's GitHub profile">
                 <i className="fab fa-github"></i>
             </a>
