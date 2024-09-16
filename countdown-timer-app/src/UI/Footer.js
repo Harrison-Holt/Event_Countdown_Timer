@@ -4,8 +4,8 @@ import './footer.css';
 
 function Footer() {
     return (
-        <footer style={footerStyles}>
-            <h1 style={headerStyle}>Let's Connect!</h1>
+        <footer>
+            <h1>\Let's Connect!</h1>
             <a href="https://github.com/Harrison-Holt" className="icon-link" aria-label="Visit Harrison's GitHub profile" title="Visit Harrison's GitHub profile">
                 <i className="fab fa-github"></i>
             </a>

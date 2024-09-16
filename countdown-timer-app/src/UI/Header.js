@@ -3,9 +3,9 @@ import './header.css';
 
 function Header() {
     return (
-        <header style={Header_Style}>
+        <header>
             <h1>Event Countdown Timer</h1>
-            <a href="https://personal-blog-website-kappa.vercel.app/">Home Page</a>
+            <a href="https://harrisonholt.dev/">Home Page</a>
         </header>
     ); 
 }
