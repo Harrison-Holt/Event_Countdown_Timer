@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { calculateTimeLeft } from '../Logic/Timer_Logic';
 import './counter.css';
+import { Form } from 'react-bootstrap'; 
 
 function Counter() {
     const [eventName, setEventName] = useState(localStorage.getItem('eventName') || '');
@@ -82,15 +83,49 @@ function Counter() {
                     </div>
                 </section>
             )}
-            <form onSubmit={handleSubmit} className="form w-50">
-                <input type='text' id='event_name' value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" required className="input"/>
-                <input type='date' id='event_date' value={eventDate} onChange={e => setEventDate(e.target.value)} required className="input"/>
-                <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
-                <div className="buttonGroup">
-                    <button type='submit' className="button">Set Event</button>
-                    <button type='button' onClick={handleDelete} className="btn btn-danger">Clear Event</button>
-                </div>
-            </form>
+         <Form.Group controlId="event_name" className="mb-3">
+        <Form.Control
+          type="text"
+          value={eventName}
+          onChange={e => setEventName(e.target.value)}
+          placeholder="Event Name"
+          required
+          className="input"
+        />
+      </Form.Group>
+
+      {/* Event Date Input */}
+      <Form.Group controlId="event_date" className="mb-3">
+        <Form.Control
+          type="date"
+          value={eventDate}
+          onChange={e => setEventDate(e.target.value)}
+          required
+          className="input"
+        />
+      </Form.Group>
+
+      {/* Event Time Input */}
+      <Form.Group controlId="event_time" className="mb-3">
+        <Form.Control
+          type="time"
+          value={eventTime}
+          onChange={e => setEventTime(e.target.value)}
+          required
+          className="input"
+        />
+      </Form.Group>
+
+      {/* Buttons Group */}
+      <div className="buttonGroup d-flex justify-content-between">
+        <Button type="submit" className="button btn btn-primary">
+          Set Event
+        </Button>
+        <Button type="button" onClick={handleDelete} className="btn btn-danger">
+          Clear Event
+        </Button>
+      </div>
+    </Form>
         </div>
     );
 }
