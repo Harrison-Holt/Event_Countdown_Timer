@@ -6,8 +6,8 @@ import './footer.css';
 function Footer() {
     return (
         <Row as="footer">
-            <Col className="d-flex flex-row justify-content-center align-items-center gap-3">
-            <h1>\Let's Connect!</h1>
+            <Col className="d-flex flex-row justify-content-center align-items-center gap-3 p-3">
+            <h1>Let's Connect!</h1>
             <a href="https://github.com/Harrison-Holt" className="icon-link" aria-label="Visit Harrison's GitHub profile" title="Visit Harrison's GitHub profile">
                 <i className="fab fa-github"></i>
             </a>
