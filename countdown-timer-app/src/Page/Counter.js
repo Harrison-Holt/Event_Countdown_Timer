@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { calculateTimeLeft } from '../Logic/Timer_Logic';
 import './counter.css';
-import { Form } from 'react-bootstrap'; 
+import { Form, Button } from 'react-bootstrap'; 
 
 function Counter() {
     const [eventName, setEventName] = useState(localStorage.getItem('eventName') || '');
@@ -52,11 +52,9 @@ function Counter() {
     function formatDate(dateString) {
         const parts = dateString.split('-');
         const date = new Date(parts[0], parts[1] - 1, parts[2]);
-        
         const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}-${date.getFullYear().toString().slice(-2)}`;
         return formattedDate;
     }
-    
     
     function formatTime(timeString) {
         const [hour, minute] = timeString.split(':');
@@ -65,8 +63,7 @@ function Counter() {
         const formattedHour = ((hourInt % 12) || 12).toString().padStart(2, '0'); // Converts 0 to 12 for 12 AM
         return `${formattedHour}:${minute} ${amPm}`;
     }
-        
-
+    
     return (
         <div className="parentContainer row">
             {showDetails && (
@@ -83,54 +80,59 @@ function Counter() {
                     </div>
                 </section>
             )}
-         <Form.Group controlId="event_name" className="mb-3">
-        <Form.Control
-          type="text"
-          value={eventName}
-          onChange={e => setEventName(e.target.value)}
-          placeholder="Event Name"
-          required
-          className="input"
-        />
-      </Form.Group>
 
-      {/* Event Date Input */}
-      <Form.Group controlId="event_date" className="mb-3">
-        <Form.Control
-          type="date"
-          value={eventDate}
-          onChange={e => setEventDate(e.target.value)}
-          required
-          className="input"
-        />
-      </Form.Group>
+            {/* Form for event inputs */}
+            <Form onSubmit={handleSubmit} className="form w-50 mx-auto mt-4">
+                {/* Event Name Input */}
+                <Form.Group controlId="event_name" className="mb-3">
+                    <Form.Control
+                        type="text"
+                        value={eventName}
+                        onChange={e => setEventName(e.target.value)}
+                        placeholder="Event Name"
+                        required
+                        className="input"
+                    />
+                </Form.Group>
 
-      {/* Event Time Input */}
-      <Form.Group controlId="event_time" className="mb-3">
-        <Form.Control
-          type="time"
-          value={eventTime}
-          onChange={e => setEventTime(e.target.value)}
-          required
-          className="input"
-        />
-      </Form.Group>
+                {/* Event Date Input */}
+                <Form.Group controlId="event_date" className="mb-3">
+                    <Form.Control
+                        type="date"
+                        value={eventDate}
+                        onChange={e => setEventDate(e.target.value)}
+                        required
+                        className="input"
+                    />
+                </Form.Group>
 
-      {/* Buttons Group */}
-      <div className="buttonGroup d-flex justify-content-between">
-        <Button type="submit" className="button btn btn-primary">
-          Set Event
-        </Button>
-        <Button type="button" onClick={handleDelete} className="btn btn-danger">
-          Clear Event
-        </Button>
-      </div>
-    </Form>
+                {/* Event Time Input */}
+                <Form.Group controlId="event_time" className="mb-3">
+                    <Form.Control
+                        type="time"
+                        value={eventTime}
+                        onChange={e => setEventTime(e.target.value)}
+                        required
+                        className="input"
+                    />
+                </Form.Group>
+
+                {/* Buttons Group */}
+                <div className="buttonGroup d-flex justify-content-between">
+                    <Button type="submit" className="btn btn-primary">
+                        Set Event
+                    </Button>
+                    <Button type="button" onClick={handleDelete} className="btn btn-danger">
+                        Clear Event
+                    </Button>
+                </div>
+            </Form>
         </div>
     );
 }
 
 export default Counter;
+
 
 
 
