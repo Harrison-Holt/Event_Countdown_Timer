@@ -4,14 +4,14 @@
 header {
     background-color: #3498DB;
 }
-header h1, a {
+header h1 {
     font-family: 'Merriweather';
 }
-
-.homepage_link {
+header a {
     font-size: 36px; 
+    text-decoration: none; 
+    color: black; 
 }
-
-.homepage_link:hover {
+header a:hover {
     color: #f5f5f5; 
 }
