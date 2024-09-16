@@ -88,7 +88,7 @@ function Counter() {
                 <input type='time' id='event_time' value={eventTime} onChange={e => setEventTime(e.target.value)} required className="input"/>
                 <div className="buttonGroup">
                     <button type='submit' className="button">Set Event</button>
-                    <button type='button' onClick={handleDelete} className="deleteButton">Clear Event</button>
+                    <button type='button' onClick={handleDelete} className="btn btn-danger">Clear Event</button>
                 </div>
             </form>
         </div>
