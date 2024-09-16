@@ -14,7 +14,6 @@ const calculateTimeLeft = (event_date, event_time) => {
     let weeks_left = Math.floor(days_left / 7);
     days_left = days_left % 7; // Remainder days after converting to weeks
 
-
     const formatted_time_left = {
         seconds_left, 
         minutes_left, 
@@ -25,6 +24,5 @@ const calculateTimeLeft = (event_date, event_time) => {
 
     return formatted_time_left; 
 }
-
 
 export {calculateTimeLeft}; 
