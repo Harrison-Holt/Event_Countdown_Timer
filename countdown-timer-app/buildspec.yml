@@ -6,16 +6,18 @@ phases:
       nodejs: 18
     commands:
       - echo Installing Dependencies.......
+      - cd countdown-timer-app
       - npm ci 
 
   build:
     commands:
-      - mpn run build
+      - cd countdown-timer-app
+      - npm run build
 
   post_build:
     commands:
       - echo Uploading To S3 Bucket......
-      - aws s3 sync build/ s3://mystaticwebsitestack2-mystaticwebsite-oausntolahmt --delete
+      - aws s3 sync countdown-timer-app/build/ s3://mystaticwebsitestack2-mystaticwebsite-oausntolahmt --delete
       - echo Invalidating CloudFront cache....
       - aws cloudfront create-invalidation --distribution-id E13GUPO44IJ5WG --paths "/*"
 
@@ -23,5 +25,5 @@ artifacts:
   files:
     - '**/*'
 
-  base-directory: build 
+  base-directory: countdown-timer-app/build 
 
