@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing Dependencies.......
+      - npm ci 
+
+  build:
+    commands:
+      - mpn run build
+
+  post_build:
+    commands:
+      - echo Uploading To S3 Bucket......
+      - aws s3 sync build/ s3://mystaticwebsitestack2-mystaticwebsite-oausntolahmt --delete
+      - echo Invalidating CloudFront cache....
+      - aws cloudfront create-invalidation --distribution-id E13GUPO44IJ5WG --paths "/*"
+
+  artifacts:
+    files:
+      - '**/*'
+
+    base-directory: build 
+
