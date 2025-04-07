@@ -20,9 +20,9 @@ phases:
       - echo Invalidating CloudFront cache....
       - aws cloudfront create-invalidation --distribution-id E13GUPO44IJ5WG --paths "/*"
 
-  artifacts:
-    base-directory: countdown-timer-app/build
-    files:
-      - '**/*'
+artifacts:
+  base-directory: countdown-timer-app/build
+  files:
+    - '**/*'
 
 
